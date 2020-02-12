@@ -1,0 +1,27 @@
+{
+    "version"        : {
+        "value" : "1"
+    },
+    "method"         : {
+        "name" : "CHECK"
+    },
+    "configs"        : {
+        "serviceName"      : "CHECK",
+        "address_template" : "addresscheck/v1/normalize",
+        "querymethod"      : "post",
+        "queryformat"      : "json",
+        "responseformat"   : "json"
+    },
+    "requestparams"  : {
+        "Address Supplement"      : { "id" : "address_supplement", "type": "text", "format": "markdown", "required": true },
+        "City"                    : { "id" : "city", "type": "text", "format": "markdown" },
+        "Country"                 : { "id" : "country" },
+        "Street"                  : { "id" : "street", "required" : true }
+    },
+    "responseparams" : {
+        "Address Supplement"      : { "id" : "$.address.addressSupplement" },
+        "City"                    : { "id" : "$.address.city" },
+        "Country"                 : { "id" : "$.address.country" },
+        "Status"                  : { "id" : "$.status" }
+    }
+}

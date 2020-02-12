@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='serviceDefinitions.xsd'>
+    <!-- Sparky Identity Verification service -->
+    <service>
+        <name>sparkyidverify</name>
+        <niceName>Sparky Identity Verification Service</niceName>
+        <serviceClassName>com.accertify.service.external.vendor.sparky.idverify.SparkyIdentityVerificationService</serviceClassName>
+        <serviceWorkerClassName>com.accertify.service.external.vendor.sparky.idverify.SparkyIdentityVerificationServiceWorker</serviceWorkerClassName>
+    </service>
+</services>

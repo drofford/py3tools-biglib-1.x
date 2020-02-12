@@ -1,0 +1,7 @@
+./biglib/model/service_definitions.py
+./biglib/model/extended_service_definition.py
+./biglib/model/service_definition.py
+./biglib/helpers/service_definition_helper.py
+./.test_old/lib/model/test_service_definitions.py
+./.test_old/lib/model/test_service_definition.py
+./.test_old/lib/helpers/test_service_definition_helper.py
