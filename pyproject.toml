@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "biglib"
-version = "1.4.0"
+version = "1.4.1"
 description = "An all encompassing mega-library of stuff"
 authors = ["Garry A Offord"]
 license = "MIT"

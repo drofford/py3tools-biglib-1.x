@@ -36,7 +36,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
-        "License :: Copytight 2019 Accertify, Inc",
+        "License :: Copytight 2020 Accertify, Inc",
         "Natural Language :: English",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
