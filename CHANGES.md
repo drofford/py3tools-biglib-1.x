@@ -13,3 +13,4 @@
 | 1.3.0.a2     | 2020.01.12 | gofford | Split boxit into separate lib and app. App moved to `acc_boxit`.   |
 | 1.3.1-alpha5 | 2020.01.13 | gofford | added unit tests.                                                  |
 | 1.3.3        | 2020.02.12 | gofford | removed all dependency on `mylib`.                                 |
+//eof

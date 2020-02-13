@@ -58,19 +58,23 @@ def test_create_and_add_again() -> None:
 
 
 def test_builder_for_request_params() -> None:
-    subtree1 = ("First Name", {
+    subtree1 = {
         "id": "first_name",
         "type": "text",
         "format": "application/text",
         "required": True,
-    })
-    subtree2 = ("Last Name", {
+    }
+    subtree2 = {
         "id": "last_name",
         "type": "text",
         "format": "application/text",
         "required": False,
-    })
-    group1 = ("requestparams", (subtree1, subtree2))
+    }
+    group1 = {"requestparams": {
+        "First Name": subtree1,
+        "Last Name": subtree2,
+    }}  # TODO remove this if the next line works
+    # group1 = [subtree1, subtree2]
 
     params = ServiceConfigParams.build(group1, ServiceConfigRequestParam)
     assert params is not None

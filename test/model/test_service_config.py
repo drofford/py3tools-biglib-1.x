@@ -4,14 +4,11 @@ import os
 import os.path
 import py.test
 import re
+import sys
 
 from biglib.model.service_config import ServiceConfig
 from biglib.model.service_config_params import ServiceConfigParams
 from test.model.helpers import _create_kiki
-
-
-def test_create_empty() -> None:
-    pass
 
 
 def test_load_file_raw():
@@ -35,8 +32,15 @@ def test_load_file_not_found():
 
 
 def test_load_from_file_path():
-    file = os.path.join("test", "data", "json", "CHECK.json")
+    file = os.path.join(os.getcwd(), "test", "data", "json", "CHECK.json")
+    logging.debug(f"test_load_from_file_path: file path = {file}")
+    logging.debug(f"test_load_from_file_path: curdir= {os.getcwd()}")
+    logging.debug(f"test_load_from_file_path: exists? {os.path.exists(file)}")
+    logging.debug(f"test_load_from_file_path: isfile? {os.path.isfile(file)}")
+    logging.debug(f"test_load_from_file_path: isdir ? {os.path.isdir(file)}")
     r, t = ServiceConfig.load_from_file(file)
+    logging.debug(f"test_load_from_file_path: {r=}")
+    logging.debug(f"test_load_from_file_path: {t=}")
     assert r
     assert isinstance(t, ServiceConfig)
 
@@ -65,4 +69,3 @@ def test_parsed_service_config():
     assert request_params is not None
     assert isinstance(request_params, ServiceConfigParams)
     assert len(request_params) == 4
-    

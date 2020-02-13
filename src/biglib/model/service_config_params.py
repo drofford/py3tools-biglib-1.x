@@ -10,21 +10,27 @@ class ServiceConfigParams:
 
     @classmethod
     def build(cls, subtree, param_class):
-        logging.info(f"{type(subtree)=} :: {subtree=} :: {param_class=}")
+        logging.debug(f"ServiceConfigParams##build: {'-'*80}")
+        logging.debug(f"ServiceConfigParams##build: {type(subtree)=}")
+        logging.debug(f"ServiceConfigParams##build: {subtree=}")
+        logging.debug(f"ServiceConfigParams##build: {param_class=}")
+
         params = ServiceConfigParams()
 
         for item in subtree.items():
-            logging.info(f"{type(item)=} :: {item=}")
+            logging.debug(f"ServiceConfigParams##build: {type(item)=} :: {item=}")
             param = param_class.build(item)
-            logging.info(f"{type(param)=} {param=}")
+            logging.debug(f"ServiceConfigParams##build: {type(param)=} {param=}")
             params.put(param)
 
+        logging.debug(f"ServiceConfigParams##build: {'-'*80}")
         return params
 
     def __len__(self) -> int:
         return len(self.params)
 
     def get(self, name: str) -> [bool, ServiceConfigParam]:
+
         if name not in self.params:
             return False, [f"No param with the name {name}"]
         return True, self.params[name]
