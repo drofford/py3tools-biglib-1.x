@@ -14,3 +14,4 @@
 | 1.3.1-alpha5 | 2020.01.13 | gofford | added unit tests.                                                        |
 | 1.3.3        | 2020.02.12 | gofford | removed all dependency on `mylib`.                                       |
 | 1.5.0        | 2020.02.24 | gofford | Added new module `find_mods` which provides the `find_modules` function. |
+| 1.5.1        | 2020.02.24 | gofford | Fixed a couple of minor issues.                                          |
