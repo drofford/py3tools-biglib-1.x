@@ -8,16 +8,18 @@ from pkgutil import ModuleInfo
 
 
 def find_modules(start_mod_name: str, when=None, do=None) -> bool:
-    logging.debug(f'find_mods.py :: find_modules :: {start_mod_name=}')
+    logging.debug(f"find_mods.py :: find_modules :: {start_mod_name=}")
 
     def dummy_when(mod_full_name: str, mod_info: ModuleInfo) -> bool:
         return True
 
-    def dummy_do(mod_full_name: str, mod_info: ModuleInfo, sub_mod_data: object) -> None:
+    def dummy_do(
+        mod_full_name: str, mod_info: ModuleInfo, sub_mod_data: object
+    ) -> None:
         pass
 
     _when = dummy_when if when is None else when
-    _do   = dummy_do   if do   is None else do
+    _do = dummy_do if do is None else do
 
     def search(mod_name: str, level: int) -> None:
         ind = "    " * level
@@ -31,7 +33,9 @@ def find_modules(start_mod_name: str, when=None, do=None) -> bool:
         logging.debug(f"{ind}module = {mod_data}")
 
         for mod_info in pkgutil.iter_modules(mod_data.__path__):
-            logging.debug(f"{ind}  submod name = {mod_info.name}, ispkg = {mod_info.ispkg}")
+            logging.debug(
+                f"{ind}  submod name = {mod_info.name}, ispkg = {mod_info.ispkg}"
+            )
             full_mod_name = f"{mod_name}.{mod_info.name}"
             if mod_info.ispkg:
                 # logging.debug(f"search(\"{full_mod_name}\", {level+1})")
