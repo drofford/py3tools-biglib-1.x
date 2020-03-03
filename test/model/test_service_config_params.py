@@ -70,10 +70,9 @@ def test_builder_for_request_params() -> None:
         "format": "application/text",
         "required": False,
     }
-    group1 = {"requestparams": {
-        "First Name": subtree1,
-        "Last Name": subtree2,
-    }}  # TODO remove this if the next line works
+    group1 = {
+        "requestparams": {"First Name": subtree1, "Last Name": subtree2,}
+    }  # TODO remove this if the next line works
     # group1 = [subtree1, subtree2]
 
     params = ServiceConfigParams.build(group1, ServiceConfigRequestParam)

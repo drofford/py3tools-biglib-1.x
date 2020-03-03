@@ -31,11 +31,10 @@ def test_create_with_names1() -> None:
 
 
 def test_create_from_builder() -> None:
-    subtree = ("First Name", {
-        "id": "//name/first",
-        "type": "text",
-        "format": "application/text",
-    })
+    subtree = (
+        "First Name",
+        {"id": "//name/first", "type": "text", "format": "application/text",},
+    )
 
     param = ServiceConfigResponseParam.build(subtree)
     assert param is not None

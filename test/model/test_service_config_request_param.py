@@ -59,18 +59,21 @@ def test_create_with_names2() -> None:
 
 
 def test_create_from_builder() -> None:
-    subtree = ("First Name", {
-        "id": "first_name",
-        "type": "text",
-        "format": "application/text",
-        "required": True,
-    })
+    subtree = (
+        "First Name",
+        {
+            "id": "first_name",
+            "type": "text",
+            "format": "application/text",
+            "required": True,
+        },
+    )
 
     param = ServiceConfigRequestParam.build(subtree)
     assert param is not None
     assert isinstance(param, ServiceConfigRequestParam)
     assert param.param_name == "First Name"
-    assert param.param_id   == "first_name"
+    assert param.param_id == "first_name"
     assert param.param_type == "text"
     assert param.param_format == "application/text"
     assert param.param_required
