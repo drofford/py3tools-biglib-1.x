@@ -1,3 +1,5 @@
+VERSION = "1.5.4"
+
 from setuptools import setup, find_packages
 
 import os
@@ -9,11 +11,16 @@ program_name = project_name.replace("_", "-")
 from importlib import import_module
 from pathlib import Path
 
-version_module = import_module(".version", package="src."+project_name)
-VERSION = getattr(version_module, "VERSION")
+# version_module = import_module(".version", package="src."+project_name)
+# VERSION = getattr(version_module, "VERSION")
+
+version_file = os.path.join("src", project_name, "version.py")
+
+with open(version_file, "wt") as fh:
+    fh.write(f"VERSION = \"{VERSION}\"\n")
 
 setup(
-    name=f"{project_name}",
+    name=project_name,
     version=VERSION,
     packages=find_packages(where="src"),
     package_dir={'': 'src'},
@@ -21,9 +28,9 @@ setup(
     scripts=[],
     package_data={
         # If any package contains *.txt or *.rst files, include them:
-        "": ["*.txt", "*.rst"],
+        # "": ["*.txt", "*.rst"],
         # And include any *.msg files found in the "hello" package, too:
-        "hello": ["*.msg"],
+        # "hello": ["*.msg"],
     },
     author="Garry A Offord",
     author_email="gofford@accertify.com",
@@ -45,3 +52,5 @@ setup(
     tests_require=["pytest"],
     entry_points={},
 )
+if os.path.exists(version_file):
+    os.unlink(version_file)
