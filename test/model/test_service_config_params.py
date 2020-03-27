@@ -1,5 +1,5 @@
-from biglib.model.service_config_request_param import ServiceConfigRequestParam
 from biglib.model.service_config_params import ServiceConfigParams
+from biglib.model.service_config_request_param import ServiceConfigRequestParam
 
 
 def make_param(name=None) -> ServiceConfigRequestParam:

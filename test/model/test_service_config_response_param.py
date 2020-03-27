@@ -1,4 +1,5 @@
-from biglib.model.service_config_response_param import ServiceConfigResponseParam
+from biglib.model.service_config_response_param import \
+    ServiceConfigResponseParam
 
 
 def test_create_empty() -> None:

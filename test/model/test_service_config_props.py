@@ -1,9 +1,9 @@
 import logging
 import os
 import os.path
-import py.test
 import re
 
+import py.test
 from biglib.model.service_config_props import ServiceConfigProps
 
 

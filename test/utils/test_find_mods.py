@@ -3,7 +3,6 @@ import logging
 import os
 import pkgutil
 import sys
-
 from pkgutil import ModuleInfo
 
 from biglib.utils.find_mods import find_modules

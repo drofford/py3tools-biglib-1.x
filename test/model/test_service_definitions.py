@@ -1,13 +1,12 @@
 import logging
 import os
 import os.path
-import py.test
 import re
+from test.model.helpers import _create_kiki
 
+import py.test
 from biglib.model.service_definition import ServiceDefinition
 from biglib.model.service_definitions import ServiceDefinitions
-
-from test.model.helpers import _create_kiki
 
 TEST_XML_FILE_1 = os.path.join("test", "data", "xml", "simple1.xml")
 TEST_XML_FILE_2 = os.path.join("test", "data", "xml", "simple2.xml")

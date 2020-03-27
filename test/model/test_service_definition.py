@@ -1,9 +1,9 @@
 import logging
-import py.test
 import re
-
-from biglib.model.service_definition import ServiceDefinition
 from test.model.helpers import _create_kiki
+
+import py.test
+from biglib.model.service_definition import ServiceDefinition
 
 
 def test_create_empty() -> None:

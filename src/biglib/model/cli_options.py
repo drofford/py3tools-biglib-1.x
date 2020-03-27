@@ -1,5 +1,6 @@
-import attr
 import logging
+
+import attr
 
 
 @attr.s

@@ -1,16 +1,17 @@
-import attr
 import io
 import json
 import logging
 import re
 
-from .service_config_version import ServiceConfigVersion
+import attr
+
 from .service_config_method import ServiceConfigMethod
 from .service_config_param import ServiceConfigParam
 from .service_config_params import ServiceConfigParams
 from .service_config_props import ServiceConfigProps
 from .service_config_request_param import ServiceConfigRequestParam
 from .service_config_response_param import ServiceConfigResponseParam
+from .service_config_version import ServiceConfigVersion
 
 KEY_METHOD = "method"
 KEY_REQUESTPARAMS = "requestparams"
