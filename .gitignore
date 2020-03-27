@@ -68,4 +68,3 @@ package-lock.json
 pyenv/
 target
 venv/
-**/version.py

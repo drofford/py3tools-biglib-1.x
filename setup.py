@@ -10,10 +10,11 @@ import os.path
 
 project_name = program_name.replace("-", "_")
 
-version_file = os.path.join("src", project_name, "version.py")
+from importlib import import_module
+from pathlib import Path
 
-with open(version_file, "wt") as fh:
-    fh.write(f"VERSION = \"{VERSION}\"\n")
+version_module = import_module(".version", package="src."+project_name)
+VERSION = getattr(version_module, "VERSION")
 
 setup(
     name=program_name,
@@ -46,6 +47,3 @@ setup(
     zip_safe=False,
     test_suite="py.test",
     tests_require=["pytest"],
-)
-if os.path.exists(version_file):
-    os.unlink(version_file)
