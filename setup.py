@@ -46,3 +46,10 @@ setup(
     zip_safe=False,
     test_suite="py.test",
     tests_require=["pytest"],
+    entry_points={
+        "console_scripts": [
+            f"{program_name}={project_name}.__main__:main",
+        ]
+    },
+)
+
