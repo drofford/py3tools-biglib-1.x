@@ -1,4 +1,3 @@
-VERSION = "1.5.6"
 program_name = "biglib"
 description = """A command line app to send messages to Vertigo in the style of the Interceptas Control Room External Services page."""
 requires = ["attrs", "requests", "urllib3", "mako", "fuzzywuzzy", "python-levenshtein"],
