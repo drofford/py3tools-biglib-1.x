@@ -4,7 +4,7 @@ Custom library used by my tools.
 Library contains a bunch of tools for interceptas, vertigo, and miscellaneous purposes.
 """
 
-__version__ = "1.5.9"
+__version__ = "1.5.10"
 
 import logging
 import os
