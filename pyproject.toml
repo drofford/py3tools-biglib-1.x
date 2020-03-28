@@ -3,7 +3,7 @@ requires = [ "flit_core >=2,<3" ]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
-module = "biglib
+module = "biglib"
 author = "G A Offord"
 author-email = "gofford@accertify.com"
 requires = [
