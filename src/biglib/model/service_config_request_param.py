@@ -1,5 +1,6 @@
-import attr
 import logging
+
+import attr
 
 from .service_config_param import ServiceConfigParam
 

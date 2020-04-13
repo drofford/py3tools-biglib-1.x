@@ -2,13 +2,13 @@ import json
 import logging
 import os
 import os.path
-import py.test
 import re
 import sys
+from test.model.helpers import _create_kiki
 
+import py.test
 from biglib.model.service_config import ServiceConfig
 from biglib.model.service_config_params import ServiceConfigParams
-from test.model.helpers import _create_kiki
 
 
 def test_load_file_raw():

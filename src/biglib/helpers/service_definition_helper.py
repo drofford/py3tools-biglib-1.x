@@ -3,7 +3,6 @@ import os
 import os.path
 import re
 import sys
-
 # import xmltodict
 import xml.etree.ElementTree as ET
 

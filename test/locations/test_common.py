@@ -4,10 +4,11 @@ import os.path
 import re
 import sys
 
+from biglib.locations.common import find_home_dir
+
 os.putenv("HOME", "/Users/gofford")
 logging.warning(f"set env var HOME to {os.getenv('HOME')}")
 
-from biglib.locations.common import find_home_dir
 
 
 def test_find_home_dir():

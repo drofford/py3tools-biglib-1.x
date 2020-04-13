@@ -1,8 +1,9 @@
 import logging
 
+from .base_check import BaseCheck
+
 logging.debug("sparky :: checks :: check_george.py")
 
-from .base_check import BaseCheck
 
 
 def do():

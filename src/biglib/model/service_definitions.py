@@ -1,13 +1,14 @@
-import logging
 import io
+import logging
 import re
 import xml.etree.ElementTree as ET
 
 from fuzzywuzzy import fuzz, process
 
+from .service_definition import ServiceDefinition
+
 # from singleton_decorator import singleton
 
-from .service_definition import ServiceDefinition
 
 
 # @singleton

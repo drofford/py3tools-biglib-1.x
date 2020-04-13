@@ -3,7 +3,6 @@ import logging
 import os
 import pkgutil
 import sys
-
 from pkgutil import ModuleInfo
 
 from biglib.utils.find_mods import find_modules
@@ -17,15 +16,19 @@ def test_find_mods():
     def do(mod_full_name: str, mod_info: ModuleInfo, sub_mod_data: object) -> None:
         checks.append(
             {
-                "mod_full_name": mod_full_name, 
-                "mod_info": mod_info, 
-                "sub_mod_data": sub_mod_data, 
+                "mod_full_name": mod_full_name,
+                "mod_info": mod_info,
+                "sub_mod_data": sub_mod_data,
                 "result": None,
-                "description": sub_mod_data.description() if "description" in dir(sub_mod_data) else mod_info.name
+                "description": sub_mod_data.description()
+                if "description" in dir(sub_mod_data)
+                else mod_info.name,
             }
         )
 
-    find_modules("test.utils.sparky", when=lambda fn, mi: mi.name.startswith("check_"), do=do)
+    find_modules(
+        "test.utils.sparky", when=lambda fn, mi: mi.name.startswith("check_"), do=do
+    )
 
     result = True
 
@@ -50,7 +53,7 @@ def test_find_mods():
             else:
                 tests_failed += 1
                 rs = "failed"
-            check["result"] = rs;
+            check["result"] = rs
 
             logging.info(f"{desc} : {rs}")
             result = result and b

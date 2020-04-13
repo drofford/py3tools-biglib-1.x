@@ -1,5 +1,5 @@
-from biglib.model.service_config_request_param import ServiceConfigRequestParam
 from biglib.model.service_config_params import ServiceConfigParams
+from biglib.model.service_config_request_param import ServiceConfigRequestParam
 
 
 def make_param(name=None) -> ServiceConfigRequestParam:
@@ -70,10 +70,9 @@ def test_builder_for_request_params() -> None:
         "format": "application/text",
         "required": False,
     }
-    group1 = {"requestparams": {
-        "First Name": subtree1,
-        "Last Name": subtree2,
-    }}  # TODO remove this if the next line works
+    group1 = {
+        "requestparams": {"First Name": subtree1, "Last Name": subtree2,}
+    }  # TODO remove this if the next line works
     # group1 = [subtree1, subtree2]
 
     params = ServiceConfigParams.build(group1, ServiceConfigRequestParam)
