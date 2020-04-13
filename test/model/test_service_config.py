@@ -4,7 +4,6 @@ import os
 import os.path
 import re
 import sys
-from test.model.helpers import _create_kiki
 
 import py.test
 from biglib.model.service_config import ServiceConfig
@@ -18,8 +17,6 @@ def test_load_file_raw():
     logging.debug(f"{x=}")
 
     logging.debug(json.dumps(x, indent=4))
-
-    # assert False
 
 
 def test_load_file_not_found():

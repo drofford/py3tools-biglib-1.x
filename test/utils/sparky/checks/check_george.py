@@ -5,7 +5,6 @@ from .base_check import BaseCheck
 logging.debug("sparky :: checks :: check_george.py")
 
 
-
 def do():
     logging.debug(f"sparky :: checks :: check_george.py :: do()")
     return True
