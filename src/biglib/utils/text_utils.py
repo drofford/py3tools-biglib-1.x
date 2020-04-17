@@ -37,12 +37,12 @@ def pluralize(txt, /, verbs=[], nouns=[], count=0):
     """
 
     def picker(count, array):
-        result = "x0" # kludge
+        result = "x0"  # kludge
         if array is None:
-            result = "x1" # kludge
+            result = "x1"  # kludge
         elif isinstance(array, tuple) or isinstance(array, list):
             if len(array) == 0:
-                result = "x2" # kludge
+                result = "x2"  # kludge
             elif len(array) == 1:
                 result = array[0]
             else:
