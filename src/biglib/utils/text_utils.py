@@ -67,24 +67,42 @@ def join(in_array, /, quoted: bool=True, separator: str=", ", conjunction:str=""
 
     Parameters:
 
-        :param in_array         this is a list/tuple of strings to be joined.
+        in_array                this is a list/tuple of strings to be joined.
 
-        :param quoted           if True, strings are enclosed in quote characters (") before being joined. The
+        quoted                  if True, strings are enclosed in quote characters (") before being joined. The
                                 default is True.
 
-        :param separator        defines the character(s) used to separate any two elements. The default is ", ".
+        separator               defines the character(s) used to separate any two elements. The default is ", ".
 
-        :param conjunction      if specified as a non blank length, the last two strings will be separated with
+        conjunction             if specified as a non blank length, the last two strings will be separated with
                                 the conjunction word instead of the separator character(s). If the oxford_comma
                                 parameter is specified as True, the separator character(s) will be included. The
                                 default conjunction word is "" (so just use separator character(s).
 
-        :param oxford_comma     if a non-blank conjunction word has been specified, it will be preceded by the separator
+        oxford_comma            if a non-blank conjunction word has been specified, it will be preceded by the separator
                                 character(s) if this parameter is True. Otherwise, the separator character(s) will be
                                 omitted before the conjunction word.
 
     Returns:
         string result
+
+    Examples:
+
+        01. join(("john", "paul", "george")) -> '"john", "paul", "george"'
+        02. join(("john", "paul", "george"), quoted=False) -> "john, paul, george"
+        03. join(("john", "paul", "george"), quoted=False) -> 'john, paul, george'
+        04. join(("john", "paul", "george"), quoted=False, conjunction="and") -> 'john, paul, and george'
+        05. join(("john", "paul", "george"), quoted=False, conjunction="and", oxford_comma=False) -> 'john, paul and george'
+        06. join(("john", "paul", "george"), quoted=False, oxford_comma=False) -> 'john, paul, george'
+        07. join(["john", "paul"]) -> '"john", "paul"'
+        08. join(["john", "paul"], conjunction="and") -> '"john" and "paul"'
+        09. join(["john", "paul"], conjunction="kaj") -> '"john" kaj "paul"'
+        10. join(["john", "paul"], quoted=False) -> 'john, paul'
+        11. join(["john", "paul"], quoted=False, conjunction="and") -> 'john and paul'
+        12. join(["john", "paul"], separator=",") -> '"john","paul"'
+        13. join(["john", "paul"], separator=",", oxford_comma=False) -> '"john","paul"'
+        14. join(["john"]) -> '"john"'
+        15. join(["john"], quoted=False) -> 'john'
     """
     quoter = lambda t: '"' + t + '"' if quoted else t
 
