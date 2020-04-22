@@ -28,4 +28,3 @@ test = [
 doc = ["sphinx"]
 
 [tool.flit.entrypoints.console_scripts]
-validate-project = "validate_project.__main__:main"
