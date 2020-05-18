@@ -1,15 +1,16 @@
 import importlib
-import logging
+# import logging
 import os
 import pkgutil
 import sys
 from pkgutil import ModuleInfo
 
+from biglib import logger
 from biglib.utils.find_mods import find_modules
 
 
 def test_find_mods():
-    logging.debug("sparky :: test_find_mods.py :: test_find_mods()")
+    logger.debug("sparky :: test_find_mods.py :: test_find_mods()")
 
     checks = []
 
@@ -55,7 +56,7 @@ def test_find_mods():
                 rs = "failed"
             check["result"] = rs
 
-            logging.info(f"{desc} : {rs}")
+            logger.info(f"{desc} : {rs}")
             result = result and b
 
         if "post" in dir(sub_mod_data):

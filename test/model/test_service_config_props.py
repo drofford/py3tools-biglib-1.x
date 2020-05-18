@@ -1,9 +1,10 @@
-import logging
+# import logging
 import os
 import os.path
 import re
 
 import py.test
+from biglib import logger
 from biglib.model.service_config_props import ServiceConfigProps
 
 

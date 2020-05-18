@@ -1,11 +1,12 @@
 import json
-import logging
+# import logging
 import os
 import os.path
 import re
 import sys
 
 import py.test
+from biglib import logger
 from biglib.model.service_config import ServiceConfig
 from biglib.model.service_config_params import ServiceConfigParams
 
@@ -13,10 +14,10 @@ from biglib.model.service_config_params import ServiceConfigParams
 def test_load_file_raw():
     file = os.path.join("test", "data", "json", "CHECK.json")
     x = json.load(open(file, "rt"))
-    logging.debug(f"{type(x)=}")
-    logging.debug(f"{x=}")
+    logger.debug(f"{type(x)=}")
+    logger.debug(f"{x=}")
 
-    logging.debug(json.dumps(x, indent=4))
+    logger.debug(json.dumps(x, indent=4))
 
 
 def test_load_file_not_found():
@@ -30,14 +31,14 @@ def test_load_file_not_found():
 
 def test_load_from_file_path():
     file = os.path.join(os.getcwd(), "test", "data", "json", "CHECK.json")
-    logging.debug(f"test_load_from_file_path: file path = {file}")
-    logging.debug(f"test_load_from_file_path: curdir= {os.getcwd()}")
-    logging.debug(f"test_load_from_file_path: exists? {os.path.exists(file)}")
-    logging.debug(f"test_load_from_file_path: isfile? {os.path.isfile(file)}")
-    logging.debug(f"test_load_from_file_path: isdir ? {os.path.isdir(file)}")
+    logger.debug(f"test_load_from_file_path: file path = {file}")
+    logger.debug(f"test_load_from_file_path: curdir= {os.getcwd()}")
+    logger.debug(f"test_load_from_file_path: exists? {os.path.exists(file)}")
+    logger.debug(f"test_load_from_file_path: isfile? {os.path.isfile(file)}")
+    logger.debug(f"test_load_from_file_path: isdir ? {os.path.isdir(file)}")
     r, t = ServiceConfig.load_from_file(file)
-    logging.debug(f"test_load_from_file_path: {r=}")
-    logging.debug(f"test_load_from_file_path: {t=}")
+    logger.debug(f"test_load_from_file_path: {r=}")
+    logger.debug(f"test_load_from_file_path: {t=}")
     assert r
     assert isinstance(t, ServiceConfig)
 
@@ -61,7 +62,7 @@ def test_parsed_service_config():
     assert svc_cfg.get_service_config_method() == (True, "CHECK")
 
     r, request_params = svc_cfg.get_service_request_params()
-    logging.info(f"{type(request_params)=} {request_params=}")
+    logger.info(f"{type(request_params)=} {request_params=}")
     assert r
     assert request_params is not None
     assert isinstance(request_params, ServiceConfigParams)

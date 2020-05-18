@@ -1,5 +1,7 @@
-import logging
+# import logging
 import re
+
+from biglib import logger
 
 
 class Properties:
@@ -47,43 +49,41 @@ class Properties:
            collection. Forward references are not currently supported.
         """
 
-        logging.debug(
-            """GET: prop_name="{}", evaluate={}""".format(prop_name, evaluate)
-        )
+        logger.debug("""GET: prop_name="{}", evaluate={}""".format(prop_name, evaluate))
 
         def repl(matchobj):
-            logging.debug("""    repl called with matchobj="{}" """.format(matchobj))
+            logger.debug("""    repl called with matchobj="{}" """.format(matchobj))
             prop_name = str(matchobj.group(0))[2:-1]
-            logging.debug("""    prop_name = "{}" """.format(prop_name))
+            logger.debug("""    prop_name = "{}" """.format(prop_name))
 
             if prop_name in self.items:
                 prop_value = self.items[prop_name]
-                logging.debug(
+                logger.debug(
                     """    replaced "{}" with "{}" """.format(
                         matchobj.group(0), prop_value
                     )
                 )
                 return prop_value
 
-            logging.debug("""No value found for "{}" """.format(matchobj.group(0)))
+            logger.debug("""No value found for "{}" """.format(matchobj.group(0)))
             return matchobj.group(0)
 
         prop_val = None
 
         if prop_name in self.items:
             prop_val = self.items[prop_name]
-            logging.debug(
+            logger.debug(
                 """prop_name="{}", evaluate={}, prop_val="{}" """.format(
                     prop_name, evaluate, prop_val
                 )
             )
             if evaluate:
                 if re.search("\\${[^}]+}", prop_val):
-                    logging.debug("""  value contains at least one ${variable-name}""")
+                    logger.debug("""  value contains at least one ${variable-name}""")
                     prop_val = re.sub("\\${[^}]+}", repl, prop_val)
-                    logging.debug("""  resultant string is "{}" """.format(prop_val))
+                    logger.debug("""  resultant string is "{}" """.format(prop_val))
                 else:
-                    logging.debug(
+                    logger.debug(
                         """  value does NOT contain at least one ${variable-name}"""
                     )
 
@@ -107,7 +107,7 @@ class Properties:
         key = prop_name.strip()
         val = prop_value.strip()
 
-        logging.debug("""PUT: key="{}", value="{}" """.format(key, val))
+        logger.debug("""PUT: key="{}", value="{}" """.format(key, val))
 
         old = self.items[key] if key in self.items else None
         self.items[key] = val

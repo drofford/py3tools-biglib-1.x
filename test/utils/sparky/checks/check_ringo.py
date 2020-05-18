@@ -1,10 +1,12 @@
-import logging
+# import logging
 
-logging.debug("sparky :: checks :: check_ringo.py")
+from biglib import logger
+
+logger.debug("sparky :: checks :: check_ringo.py")
 
 
 def do():
-    logging.debug(f"sparky :: checks :: check_ringo.py :: do()")
+    logger.debug(f"sparky :: checks :: check_ringo.py :: do()")
     return True
 
 

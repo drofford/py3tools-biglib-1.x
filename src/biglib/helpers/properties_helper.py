@@ -1,4 +1,4 @@
-import logging as log
+# import logging as log
 import os.path
 import re
 
@@ -12,19 +12,19 @@ class PropertiesHelper(object):
     @classmethod
     def load_from_file(cls, props_file_path):
         f = os.path.realpath(os.path.join(os.getcwd(), props_file_path))
-        log.debug(
+        logger.debug(
             """{cl}#{fu} : props_file_path='{pf}'.""".format(
                 cl="PropertiesHelper",
                 fu="load_properties_from_file",
                 pf=props_file_path,
             )
         )
-        log.debug(
+        logger.debug(
             """{cl}#{fu} : current dir    ='{cd}'.""".format(
                 cl="PropertiesHelper", fu="load_properties_from_file", cd=os.getcwd()
             )
         )
-        log.debug(
+        logger.debug(
             """{cl}#{fu} : full    path   ='{fd}'.""".format(
                 cl="PropertiesHelper", fu="load_properties_from_file", fd=f
             )
@@ -39,7 +39,7 @@ class PropertiesHelper(object):
 
     @classmethod
     def load_from_open_file(cls, file_handle):
-        log.debug(
+        logger.debug(
             """{cl}#{fu}.""".format(
                 cl="PropertiesHelper", fu="load_properties_from_openfile"
             )
@@ -56,7 +56,7 @@ class PropertiesHelper(object):
                 h = re.findall("([^=]+)=(.+)", line)
                 if len(h) == 0 or len(h[0]) != 2:
                     continue
-                log.debug("""read property file line '{}'.""".format(line))
+                logger.debug("""read property file line '{}'.""".format(line))
 
                 props.put(h[0][0], h[0][1])
 

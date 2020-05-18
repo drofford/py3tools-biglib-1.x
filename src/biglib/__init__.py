@@ -9,5 +9,11 @@ __version__ = "2.3.1"
 import logging
 import os
 
+import daiquiri
+
 level = logging.DEBUG if os.getenv("DEBUG", "") == "Y" else logging.INFO
 logging.basicConfig(format="%(asctime)s %(levelname)s : %(message)s", level=level)
+
+
+daiquiri.setup(logging.DEBUG if os.getenv("DEBUG", "") == "Y" else logging.INFO)
+logger = daiquiri.getLogger("biglib")

@@ -1,13 +1,15 @@
 import importlib
-import logging
+# import logging
 import os
 import pkgutil
 import sys
 from pkgutil import ModuleInfo
 
+from biglib import logger
+
 
 def find_modules(start_mod_name: str, when=None, do=None) -> bool:
-    logging.debug(f"find_mods.py :: find_modules :: {start_mod_name=}")
+    logger.debug(f"find_mods.py :: find_modules :: {start_mod_name=}")
 
     def dummy_when(mod_full_name: str, mod_info: ModuleInfo) -> bool:
         return True
@@ -22,32 +24,32 @@ def find_modules(start_mod_name: str, when=None, do=None) -> bool:
 
     def search(mod_name: str, level: int) -> None:
         ind = "    " * level
-        logging.debug(f"{ind}sparky :: find_mods.py :: search({mod_name})")
+        logger.debug(f"{ind}sparky :: find_mods.py :: search({mod_name})")
 
         if level > 8:
-            logging.error(f"level reached {level}")
+            logger.error(f"level reached {level}")
             exit(0)
 
         mod_data = importlib.import_module(mod_name)
-        logging.debug(f"{ind}module = {mod_data}")
+        logger.debug(f"{ind}module = {mod_data}")
 
         for mod_info in pkgutil.iter_modules(mod_data.__path__):
-            logging.debug(
+            logger.debug(
                 f"{ind}  submod name = {mod_info.name}, ispkg = {mod_info.ispkg}"
             )
             full_mod_name = f"{mod_name}.{mod_info.name}"
             if mod_info.ispkg:
-                # logging.debug(f"search(\"{full_mod_name}\", {level+1})")
+                # logger.debug(f"search(\"{full_mod_name}\", {level+1})")
                 search(full_mod_name, level + 1)
             # elif mod_info.name.startswith("check_"):
             elif _when(full_mod_name, mod_info):
                 sub_mod_data = importlib.import_module(full_mod_name)
-                logging.debug(f"Found sub module: {full_mod_name}")
-                logging.debug(f"{mod_info=}")
-                logging.debug(f"{sub_mod_data=}")
+                logger.debug(f"Found sub module: {full_mod_name}")
+                logger.debug(f"{mod_info=}")
+                logger.debug(f"{sub_mod_data=}")
                 _do(full_mod_name, mod_info, sub_mod_data)
             else:
-                logging.debug(f"Ignoring module: {mod_name}.{mod_info.name}")
+                logger.debug(f"Ignoring module: {mod_name}.{mod_info.name}")
 
     search(start_mod_name, 0)
     return True

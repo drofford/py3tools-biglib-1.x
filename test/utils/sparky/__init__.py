@@ -1,3 +1,5 @@
-import logging
+# import logging
 
-logging.debug("sparky :: checks :: __init__.py")
+from biglib import logger
+
+logger.debug("sparky :: checks :: __init__.py")

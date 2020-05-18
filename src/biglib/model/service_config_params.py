@@ -1,6 +1,7 @@
-import logging
+# import logging
 
 import attr
+from biglib import logger
 
 from .service_config_param import ServiceConfigParam
 
@@ -11,20 +12,20 @@ class ServiceConfigParams:
 
     @classmethod
     def build(cls, subtree, param_class):
-        logging.debug(f"ServiceConfigParams##build: {'-'*80}")
-        logging.debug(f"ServiceConfigParams##build: {type(subtree)=}")
-        logging.debug(f"ServiceConfigParams##build: {subtree=}")
-        logging.debug(f"ServiceConfigParams##build: {param_class=}")
+        logger.debug(f"ServiceConfigParams##build: {'-'*80}")
+        logger.debug(f"ServiceConfigParams##build: {type(subtree)=}")
+        logger.debug(f"ServiceConfigParams##build: {subtree=}")
+        logger.debug(f"ServiceConfigParams##build: {param_class=}")
 
         params = ServiceConfigParams()
 
         for item in subtree.items():
-            logging.debug(f"ServiceConfigParams##build: {type(item)=} :: {item=}")
+            logger.debug(f"ServiceConfigParams##build: {type(item)=} :: {item=}")
             param = param_class.build(item)
-            logging.debug(f"ServiceConfigParams##build: {type(param)=} {param=}")
+            logger.debug(f"ServiceConfigParams##build: {type(param)=} {param=}")
             params.put(param)
 
-        logging.debug(f"ServiceConfigParams##build: {'-'*80}")
+        logger.debug(f"ServiceConfigParams##build: {'-'*80}")
         return params
 
     def __len__(self) -> int:

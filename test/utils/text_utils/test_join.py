@@ -6,7 +6,7 @@ def test_empty():
     actual = join([])
     assert actual == expect
 
-    expect = ''
+    expect = ""
     actual = join([], quoted=False)
     assert actual == expect
 
@@ -18,7 +18,7 @@ def test_empty():
     actual = join([], oxford_comma=False)
     assert actual == expect
 
-    expect = ''
+    expect = ""
     actual = join([], quoted=False, oxford_comma=False)
     assert actual == expect
 
@@ -28,9 +28,10 @@ def test_just_one():
     actual = join(["john"])
     assert actual == expect
 
-    expect = 'john'
+    expect = "john"
     actual = join(["john"], quoted=False)
     assert actual == expect
+
 
 def test_with_two():
     expect = '"john", "paul"'
@@ -53,11 +54,11 @@ def test_with_two():
     actual = join(["john", "paul"], conjunction="kaj")
     assert actual == expect
 
-    expect = 'john, paul'
+    expect = "john, paul"
     actual = join(["john", "paul"], quoted=False)
     assert actual == expect
 
-    expect = 'john and paul'
+    expect = "john and paul"
     actual = join(["john", "paul"], quoted=False, conjunction="and")
     assert actual == expect
 
@@ -71,21 +72,20 @@ def test_with_three():
     actual = join(("john", "paul", "george"), quoted=False)
     assert actual == expect
 
-    expect = 'john, paul, and george'
+    expect = "john, paul, and george"
     actual = join(("john", "paul", "george"), quoted=False, conjunction="and")
     assert actual == expect
 
-    expect = 'john, paul and george'
-    actual = join(("john", "paul", "george"), quoted=False, conjunction="and", oxford_comma=False)
+    expect = "john, paul and george"
+    actual = join(
+        ("john", "paul", "george"), quoted=False, conjunction="and", oxford_comma=False
+    )
     assert actual == expect
 
-    expect = 'john, paul, george'
+    expect = "john, paul, george"
     actual = join(("john", "paul", "george"), quoted=False, oxford_comma=False)
     assert actual == expect
 
-    expect = 'john, paul, george'
+    expect = "john, paul, george"
     actual = join(("john", "paul", "george"), quoted=False)
     assert actual == expect
-
-
-

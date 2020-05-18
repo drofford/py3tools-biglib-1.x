@@ -7,8 +7,8 @@ module = "biglib"
 author = "G A Offord"
 author-email = "gofford@accertify.com"
 requires = [
-    "flit_core >=2,<3", 
-    "attrs",  "pytest", "singleton_decorator", "memoize2",
+    "flit_core >=2,<3",
+    "attrs",  "pytest", "singleton_decorator", "memoize2", "daiquiri",
     "requests", "urllib3", "mako", "fuzzywuzzy", "python-levenshtein",
 ]
 requires-python=">=3.8"

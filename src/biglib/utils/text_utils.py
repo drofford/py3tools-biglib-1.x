@@ -59,7 +59,14 @@ def pluralize(txt, /, verbs=[], nouns=[], count=0):
     return txt.format(verb=verb, noun=noun, count=count)
 
 
-def join(in_array, /, quoted: bool=True, separator: str=", ", conjunction:str="", oxford_comma:bool=True) -> str:
+def join(
+    in_array,
+    /,
+    quoted: bool = True,
+    separator: str = ", ",
+    conjunction: str = "",
+    oxford_comma: bool = True,
+) -> str:
     """
     Joins together two or more strings, using the specified separator (default is ", "). Optionally, the last two
     elements can be joined by a word instead of a separator (default is no); in this case, you can also add the

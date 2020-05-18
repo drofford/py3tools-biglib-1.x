@@ -1,10 +1,12 @@
-import logging
+# import logging
 
-logging.debug("sparky :: checks :: check_paul.py")
+from biglib import logger
+
+logger.debug("sparky :: checks :: check_paul.py")
 
 
 def do():
-    logging.debug(f"sparky :: checks :: check_paul.py :: do()")
+    logger.debug(f"sparky :: checks :: check_paul.py :: do()")
     return True
 
 
