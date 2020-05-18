@@ -13,3 +13,4 @@ This is the README file for the "biglib" project.
 | 2.1.0   | 2020.04.17 | gofford | Added new `pluralize` function.            |
 | 2.2.0   | 2020.04.17 | gofford | Added new `join` function.                 |
 | 2.3.0   | 2020.05.07 | gofford | Added new `mkdir_p` to `dir_utils` module. |
+| 2.3.1   | 2020.05.08 | gofford | Added type info to boxit function.         |

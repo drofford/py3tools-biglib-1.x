@@ -44,10 +44,10 @@ def _double_space(words_in):
 
 ################################################################################
 ### function : boxit()
-### params   : options
-###          : words
+### params   : options: dict
+###          : words  : str, list, or tuple
 ################################################################################
-def boxit(options, words):
+def boxit(options: dict, words) -> str:
     if type(words) is list or type(words) == tuple:
         if JOIN in options and options[JOIN]:
             words = [" ".join(words)]
